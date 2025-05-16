@@ -18,13 +18,13 @@ public class WebDriverManager {
     private WebDriverManager() {
     }
 
-    //Allows to set the browser name
+    // Allows to set the browser name
     public static void setBrowser(String browser) {
         browserName.set(browser);
     }
 
     public static WebDriver getDriver() {
-        //Gets the driver instance of the thread
+        // Gets the driver instance of the thread
         if (driverInstance.get() == null) {
             if (browserName.get() == null) {
                 throw new IllegalStateException("Browser not set");
@@ -36,7 +36,7 @@ public class WebDriverManager {
     }
 
     private static WebDriver createDriver(String browserName) {
-        //Sets a Driver depend on the browser name
+        // Sets a Driver depending on the browser name
         return switch (browserName.toLowerCase()) {
             case "chrome" -> new ChromeDriver();
             case "firefox" -> new FirefoxDriver();
@@ -48,7 +48,7 @@ public class WebDriverManager {
     public static void quitDriver() {
         if (driverInstance.get() != null) {
             driverInstance.get().quit();
-            //Remove the associated value of the driverInstance and browserName from the thread
+            // Removes the associated values of the driverInstance and browserName from the thread
             driverInstance.remove();
             browserName.remove();
         }

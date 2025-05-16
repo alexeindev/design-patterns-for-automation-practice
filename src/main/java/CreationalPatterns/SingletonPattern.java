@@ -4,7 +4,7 @@ public class SingletonPattern {
 
     public static class Browser{
 
-        //1. Create a private static instance of that class
+        //1. Create a private static field to store the instance of that class
         private static Browser browser;
 
         //2. Make the constructor private so we cannot create instances outside the class
